@@ -9,6 +9,8 @@ const app = express();
 const publicDir = path.join(__dirname, '../public');
 const viewDir = path.join(__dirname, '../templates/views');
 const partialspath = path.join(__dirname, '../templates/partials');
+
+const port = process.env.PORT || 3000;
 //setting up the view engine
 app.get('/', (req, res) => {
     res.render('index', {
@@ -82,6 +84,6 @@ app.get('*', (req, res) => {
         error: 'The Page did Not Found'
     })
 });
-app.listen(3000, () => {
-    console.log(chalk.green.underline.bold('Server is running on post 3000'));
+app.listen(port, () => {
+    console.log(chalk.green.underline.bold('Server is running on port :' + port));
 })
